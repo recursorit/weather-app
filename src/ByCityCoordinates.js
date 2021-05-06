@@ -1,15 +1,15 @@
 import React from 'react'
 import { Row, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-function ByCityCoordinates({ longitude, latitude, setLongitude, setLatitude }) {
+function ByCityCoordinates({ longitude, latitude, setLongitude, setLatitude ,cityName,cityID,zipCode}) {
     return (
         <Row className='mt-3 '>
             <Form>
                 <Form.Group controlId="exampleForm.SelectCustom">
                     <Row className='px-3'>
                         <Col xs={12} md={4} lg={5} >
-                            <Form.Label>By Longitutde</Form.Label>
-                            <Form.Control type="select" value={longitude} onChange={(e) => setLongitude(e.target.value)} as="select" custom>
+                            <Form.Label className='text-center'>By Longitutde</Form.Label>
+                            <Form.Control type="select" value={longitude} disabled={cityID || cityName || zipCode}  onChange={(e) => setLongitude(e.target.value)} as="select" custom>
                                 <option></option>
                                 <option>73.199997</option>
                                 <option>72.6167</option>
@@ -29,8 +29,8 @@ function ByCityCoordinates({ longitude, latitude, setLongitude, setLatitude }) {
                             </Form.Control>
                         </Col>
                         <Col xs={12} md={4} lg={5} >
-                            <Form.Label>By Latitude</Form.Label>
-                            <Form.Control type="select" value={latitude} onChange={(e) => setLatitude(e.target.value)} as="select" custom>
+                            <Form.Label className='text-center'>By Latitude</Form.Label>
+                            <Form.Control type="select" value={latitude}  disabled={cityID || cityName|| zipCode}  onChange={(e) => setLatitude(e.target.value)} as="select" custom>
                                 <option></option>
                                 <option>22.299999</option>
                                 <option>23.0333</option>

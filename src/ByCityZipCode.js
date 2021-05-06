@@ -1,14 +1,15 @@
 import React from 'react'
 import { Row, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-function ByCityZipCode({ zipCode, setZipcode }) {
+import ByCityName from './ByCityName';
+function ByCityZipCode({ zipCode, setZipcode,cityName,longitude,latitude,cityID }) {
     return (
         <Row className='mt-3'>
             <Col >
                 <Form>
                     <Form.Group controlId="exampleForm.SelectCustom">
-                        <Form.Label>By Zip-Code</Form.Label>
-                        <Form.Control type="select" value={zipCode} onChange={e => setZipcode(e.target.value)} as="select" custom>
+                        <Form.Label className='text-center'>By Zip-Code</Form.Label>
+                        <Form.Control type="select" value={zipCode} disabled={cityID || (longitude && latitude) || cityName}  onChange={e => setZipcode(e.target.value)} as="select" custom>
                             <option></option>
                             <option>94040</option>
                             <option>94041</option>

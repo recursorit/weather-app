@@ -1,15 +1,15 @@
 import React from 'react'
 import { Row, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-function ByCityName({ cityName, setCityName }) {
+function ByCityName({ cityName, setCityName, cityID, longitude, latitude, zipCode }) {
 
     return (
         <Row className='mt-3'>
             <Col >
                 <Form>
                     <Form.Group controlId="exampleForm.SelectCustom">
-                        <Form.Label>By City Name</Form.Label>
-                        <Form.Control type='select' value={cityName} onChange={(e) => setCityName(e.target.value)} as="select" custom>
+                        <Form.Label className='text-center'>By City Name</Form.Label>
+                        <Form.Control type='select' value={cityName} disabled={cityID || (longitude && latitude) || zipCode} onChange={(e) => setCityName(e.target.value)} as="select" custom>
                             <option></option>
                             <option>Vadodara</option>
                             <option>Ahemdabad</option>
@@ -29,7 +29,7 @@ function ByCityName({ cityName, setCityName }) {
                         </Form.Control>
                     </Form.Group>
                 </Form>
-            <Link to={`/cityName/${cityName}`}/>
+                <Link to={`/cityName/${cityName}`} />
             </Col>
         </Row>
     );
