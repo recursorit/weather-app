@@ -15,6 +15,7 @@ function App() {
   const [zipCode, setZipcode] = useState("")
   const [weatherData, setWeatherData] = useState({})
   const [hourlyData, setHourlyData] = useState({})
+  const [loading,setloading] = useState(false)
 
   const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
@@ -22,6 +23,7 @@ function App() {
   const history = useHistory()
   console.log(history)
   const searchWeather = () => {
+    setloading(true)
     const generateURL = (searchItem) => {
       if (searchItem === cityName) {
         return `q=${encodeURIComponent(`${searchItem}`)}&appid=3aac6eb9863a0faa25f6bc45af606c06&units=metric`
@@ -61,8 +63,10 @@ function App() {
         }
         console.log(history)
       })
-      .catch(err =>
+      .catch(err =>{
         console.log(err)
+        setloading(false) 
+      }
       )
   }
   console.log(weatherData)
@@ -84,7 +88,7 @@ setWeatherData('')
             cityID={cityID} setCityID={setCityID}
             longitude={longitude} setLongitude={setLongitude} latitude={latitude} setLatitude={setLatitude}
             zipCode={zipCode} setZipcode={setZipcode}
-            searchWeather={searchWeather} />
+            searchWeather={searchWeather} loading={loading} />
         </Route>
         <Route path='/cityName/:city'>
           <Weather weatherData={weatherData} hourlyData={hourlyData} reset={reset} />
