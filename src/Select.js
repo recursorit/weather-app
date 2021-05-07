@@ -10,7 +10,7 @@ function Select({ cityName, setCityName, cityID, setCityID, longitude, setLongit
 
     return (
         <div className=''>
-            <h2 className='text-center text-primary '>Weather Data App</h2>
+            <h2 className='text-center text-primary'>Weather Data App</h2>
             <Card style={{ width: '100%'}} className='p-3 shadow mt-3'>
             <Row className='justify-content-center mt-3'>
                 <Col xs={10} md={4} lg={4} >

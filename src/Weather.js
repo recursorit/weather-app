@@ -6,16 +6,15 @@ import { WiDaySunny, WiFog, WiCloud, WiDayCloudy, WiCloudy, WiDayRain, WiDaySnow
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from 'recharts'
 
 function Weather({ weatherData, reset,hourlyData }) {
-    const TimeZone = new Date(weatherData.timezone)
     const DT = new Date(weatherData.dt)
     const cToF = ((weatherData.main.temp) * 9 / 5 + 32)
     return (
         <>
             <h3 className='text-center text-secondary'>Today's Weather Forecast</h3>
             <Card style={{ width: '80%', height: '40rem', marginLeft: '10%' }} className='shadow '>
-                <Card.Header>
+                <Card.Header className='bg-dark text-white'>
                     <h3>{weatherData.name},{weatherData.sys.country}</h3>
-                    <code className='text-dark '>{moment(DT).format('MMMM Do YYYY, h:mm:ss a')}<br></br></code>
+                    <code>{moment(DT).format('MMMM Do YYYY, h:mm:ss a')}<br></br></code>
                 </Card.Header>
                 <Card.Body>
                         {
@@ -79,7 +78,3 @@ function Weather({ weatherData, reset,hourlyData }) {
 }
 
 export default Weather
-{/* {DT.toDateString()}<br></br> */ }
-{/* {TimeZone.toUTCString()} <br></br> */ }
-{/* {TimeZone.toTimeString()} <br></br>
-      {moment(TimeZone).format('LLLL')}<br></br> */}

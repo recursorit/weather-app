@@ -1,7 +1,6 @@
 import React from 'react'
 import { Row, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import ByCityName from './ByCityName';
 function ByCityZipCode({ zipCode, setZipcode,cityName,longitude,latitude,cityID }) {
     return (
         <Row className='mt-3'>
