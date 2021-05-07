@@ -12,7 +12,7 @@ function ByCityName({ cityName, setCityName, cityID, longitude, latitude, zipCod
                         <Form.Control type='select' value={cityName} disabled={cityID || (longitude && latitude) || zipCode} onChange={(e) => setCityName(e.target.value)} as="select" custom>
                             <option></option>
                             <option>Vadodara</option>
-                            <option>Ahemdabad</option>
+                            <option>Ahmedabad</option>
                             <option>Gandhinagar</option>
                             <option>Mumbai</option>
                             <option>Pune</option>
